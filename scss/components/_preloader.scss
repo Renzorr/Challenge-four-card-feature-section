@@ -1,0 +1,32 @@
+#preloader {
+  background: $verylightgray;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 100;
+}
+
+.pre-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8.66em;
+  height: 8.66em;
+  border-radius: 50%;
+  background: $red;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  animation: sh1 2s infinite cubic-bezier(0.3, 1, 0, 1);
+
+  @keyframes sh1 {
+    33% {
+      border-radius: 0;
+      background: $orange;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    66% {
+      border-radius: 0;
+      background: $cyan;
+      clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
+    }
+  }
+}

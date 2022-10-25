@@ -1,0 +1,27 @@
+@media (min-width: 46.6em) {
+  .main-title {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.6em;
+  }
+
+  .main-paragraph {
+    align-self: center;
+    font-size: 1.2em;
+    width: 60%;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 26.6em;
+  }
+
+  .card-orange {
+    grid-column-start: 2;
+  }
+}

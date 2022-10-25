@@ -1,0 +1,104 @@
+@mixin border($color) {
+  border-top: 0.33em solid $color;
+}
+
+@mixin hover($y, $x, $color) {
+  @media (hover: hover) {
+    &::after {
+      content: "";
+      position: absolute;
+      width: 2em;
+      height: 2em;
+      bottom: $y;
+      right: $x;
+      z-index: -1;
+      border-radius: 50%;
+      background-color: $color;
+      transition: 1s;
+    }
+
+    &:hover::after {
+      transform: scale(70);
+    }
+
+    &:hover {
+      .card-title,
+      .card-paragraph {
+        color: $white;
+      }
+    }
+  }
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2em;
+  transform: translateY(200%);
+}
+
+.complete {
+  transform: translateY(0%);
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.card {
+  background-color: $white;
+  width: 100%;
+  min-height: 15.3em;
+  padding: 0.33em 1.66em 0.66em 1.66em;
+  border-radius: 0.33em;
+  box-shadow: 0 0.33em 2em $shadow;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.card-title {
+  color: $verydarkblue;
+  padding-block-end: 0.33em;
+}
+
+.card-paragraph {
+  color: $grayishblue;
+}
+
+.icon-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  max-width: 100%;
+  padding-top: 2.33em;
+  align-self: flex-end;
+}
+
+.card-cyan {
+  @include border($cyan);
+  @include hover(40%, -50%, $cyan);
+}
+
+.card-red {
+  @include border($red);
+  @include hover(-50%, 45%, $red);
+}
+
+.card-orange {
+  @include border($orange);
+  @include hover(205%, 45%, $orange);
+}
+
+.card-blue {
+  @include border($blue);
+  @include hover(45%, 205%, $blue);
+}
